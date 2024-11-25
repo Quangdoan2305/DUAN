@@ -84,7 +84,6 @@
                                                        <label class="form-check-label" for="customCheck1"></label>
                                                   </div>
                                              </th>
-<<<<<<< HEAD
                                              <th>Danh Mục</th>
                                              <th>ID</th>
                                              <th>Trạng Thái</th>
@@ -93,16 +92,6 @@
                                    </thead>
                                    <tbody>
                                         <?php foreach($listCategories as $cate) :?>
-=======
-                                             <th>Danh muc</th>
-                                             <th>ID</th>
-                                             <th>Trang Thai</th>
-                                             <th>Hanh Dong</th>
-                                        </tr>
-                                   </thead>
-                                   <tbody>
-                                        <?php foreach ($listCategories as $cate) : ?>
->>>>>>> d619a4fb768eac83e92fca6ca5b3e8cf60287d28
                                         <tr>
                                              <td>
                                                   <div class="form-check">
@@ -115,7 +104,6 @@
                                                        <div class="rounded bg-light avatar-md d-flex align-items-center justify-content-center">
                                                             <img src="./images/category/<?=$cate['image']?>" alt="" class="avatar-md">
                                                        </div>
-<<<<<<< HEAD
                                                        <p class="text-dark fw-medium fs-15 mb-0"><?=$cate['name'] ?></p>
                                                   </div>
                                              </td>
@@ -132,22 +120,6 @@
 
                                         <?php endforeach; ?>
 
-=======
-                                                       <p class="text-dark fw-medium fs-15 mb-0"><?=$cate['name']?></p>
-                                                  </div>
-                                             </td>
-                                             <td><?=$cate['category_Id']?></td>
-                                             <td><?=$cate['status']?></td>
-                                             <td>
-                                                  <div class="d-flex gap-2">
-                                                       <a href="index.php?act=category-detail&id<?=$cate['category_Id']?>" class="btn btn-light btn-sm"><iconify-icon icon="solar:eye-broken" class="align-middle fs-18"></iconify-icon></a>
-                                                       <a href="index.php?act=category-edit&id<?=$cate['category_Id']?>" class="btn btn-soft-primary btn-sm"><iconify-icon icon="solar:pen-2-broken" class="align-middle fs-18"></iconify-icon></a>
-                                                       <a href="index.php?act=category-delete&id<?=$cate['category_Id']?>" class="btn btn-soft-danger btn-sm"><iconify-icon icon="solar:trash-bin-minimalistic-2-broken" class="align-middle fs-18"></iconify-icon></a>
-                                                  </div>
-                                             </td>
-                                        </tr>
-                                        <?php endforeach;?>
->>>>>>> d619a4fb768eac83e92fca6ca5b3e8cf60287d28
                                    </tbody>
                               </table>
                          </div>
