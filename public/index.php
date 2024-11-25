@@ -1,6 +1,8 @@
 <?php
+session_start();
+require_once '../controllers/admin/CategoryAdminController.php';
 $action= isset($_GET['act']) ? $_GET['act'] : 'index' ;
-
+$categoryAdmin = new CategoryAdminController();
 switch($action){
     case 'admin':
         include '../views/admin/index.php';
@@ -21,18 +23,20 @@ switch($action){
 
     
     case 'category':
-        include '../views/admin/category/list.php';
+        $categoryAdmin->index();
         break;
 
     case 'category-create':
-        include '../views/admin/category/create.php';
+        $categoryAdmin->addCategory();
         break;
 
     case 'category-edit':
-        include '../views/admin/category/edit.php';
+        $categoryAdmin->updateCategory();
         break;
 
-
+    case 'category-delete':
+        $categoryAdmin->deleteCategory();
+        break;
 
     case 'index':
         include '../views/client/index.php';
