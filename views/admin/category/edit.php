@@ -13,7 +13,7 @@
                     </div>
                     <div class="card-body">
                          <!-- File Upload -->
-                          <img src="./images/category/<?=$getCategory['image']?>" width="100px" alt="" class="mb-2">
+                         <img src="./images/category/<?=$getCategory['image']?>" width="100px" alt="" class="mb-2">
                          <input type="file" name="image" id="" class="form-control">
                          <input type="hidden" name="old_image" value="<?=$getCategory['image'] ?>" >
                          
