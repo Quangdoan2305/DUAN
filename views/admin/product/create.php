@@ -31,9 +31,8 @@
                               <div class="col-lg-6">
                                         <label for="product-categories" class="form-label">Danh mục </label>
                                         <select class="form-control" id="product-categories"name="category_id"data-choices data-choices-groups data-placeholder="Chọn danh mục" >
-                                             <?php foreach($categores as $cate) : ?>
-                                             <option value="">Chọn danh mục</option>
-                                             <option value="Fashion">Fashion</option>
+                                             <?php foreach($listCategores as $cate) : ?>
+                                             <option value="<?=$cate['category_Id']?>"><?=$cate['name']?></option>
                                              <?php endforeach ;?>
                                         </select>
                               </div>
@@ -61,8 +60,10 @@
                                    <div class="mt-3 mb-3">
                                         <h5 class="text-dark fw-medium">Size :</h5>
                                         <div class="d-flex flex-wrap gap-2" role="group" aria-label="Basic checkbox toggle button group">
-                                             <input type="checkbox" class="btn-check" id="size-xs1" name="variant_size[]">
-                                             <label class="btn btn-light avatar-sm rounded d-flex justify-content-center align-items-center" for="size-xs1">XS</label>
+                                             <?php foreach($listSizes as $size) :?>
+                                             <input type="checkbox" class="btn-check" id="size-<?= $size['variant_size_Id']?>" value="<?= $size['variant_size_Id']?>" name="variant_size[]">
+                                             <label class="btn btn-light avatar-sm rounded d-flex justify-content-center align-items-center" for="size-<?= $size['variant_size_Id']?>"><?= $size['size_name']?></label>
+                                             <?php endforeach;?>
                                         </div>
                                    </div>
                               </div>
@@ -70,9 +71,11 @@
                                    <div class="mt-3 mb-3">
                                         <h5 class="text-dark fw-medium">Màu :</h5>
                                         <div class="d-flex flex-wrap gap-2" role="group" aria-label="Basic checkbox toggle button group">
-                                             <input type="checkbox" class="btn-check" id="color-dark1" name="variant_color[]">
-                                             <label class="btn btn-light avatar-sm rounded d-flex justify-content-center align-items-center" for="color-dark1"> <i class="bx bxs-circle fs-18 text-dark"></i></label>
-                                        </div>
+                                        <?php foreach($listColors as $color) :?>
+                                             <input type="checkbox" class="btn-check" id="color-<?= $color['variant_color_Id']?>" value="<?= $color['variant_color_Id']?>" name="variant_color[]">
+                                             <label class="btn btn-light avatar-sm rounded d-flex justify-content-center align-items-center" for="color-<?= $color['variant_color_Id']?>"> <i class="bx bxs-circle fs-18 " style="color:<?= $color['color_code']?>;"></i></label>
+                                        <?php endforeach;?>
+                                   </div>
                                    </div>
                               </div>
                                    <div class="col-lg-3">
@@ -138,13 +141,15 @@
           newVariant.classList.add( 'mb-4','mt-3','border','rounded','px-2');
 
           newVariant.innerHTML =`
-          <div class="row mb-4 mt-3 border rouded px-2">
+          <div class="row mb-4 mt-3 border rounded px-2">
                               <div class="col-lg-4">
                                    <div class="mt-3 mb-3">
                                         <h5 class="text-dark fw-medium">Size :</h5>
                                         <div class="d-flex flex-wrap gap-2" role="group" aria-label="Basic checkbox toggle button group">
-                                             <input type="checkbox" class="btn-check" id="size-${container.children.length}" name="variant_size[]">
-                                             <label class="btn btn-light avatar-sm rounded d-flex justify-content-center align-items-center" for="size-${container.children.length}">XS</label>
+                                        <?php foreach($listSizes as $size) :?>
+                                             <input type="checkbox" class="btn-check" id="size-<?=$size['variant_size_Id']?>-${container.children.length}" name="variant_size[]">
+                                             <label class="btn btn-light avatar-sm rounded d-flex justify-content-center align-items-center" for="size-<?=$size['variant_size_Id']?>-${container.children.length}"><?=$size['size_name']?></label>
+                                        <?php endforeach;?>
                                         </div>
                                    </div>
                               </div>
@@ -152,8 +157,10 @@
                                    <div class="mt-3 mb-3">
                                         <h5 class="text-dark fw-medium">Màu :</h5>
                                         <div class="d-flex flex-wrap gap-2" role="group" aria-label="Basic checkbox toggle button group">
-                                             <input type="checkbox" class="btn-check" id="color-${container.children.length}" name="variant_color[]">
-                                             <label class="btn btn-light avatar-sm rounded d-flex justify-content-center align-items-center" for="color-${container.children.length}"> <i class="bx bxs-circle fs-18 text-dark"></i></label>
+                                        <?php foreach($listColors as $color) :?>
+                                             <input type="checkbox" class="btn-check" id="color-<?= $color['variant_color_Id']?>" value="<?= $color['variant_color_Id']?>" name="variant_color[]">
+                                             <label class="btn btn-light avatar-sm rounded d-flex justify-content-center align-items-center" for="color-<?= $color['variant_color_Id']?>"> <i class="bx bxs-circle fs-18 " style="color:<?= $color['color_code']?>;"></i></label>
+                                        <?php endforeach;?>
                                         </div>
                                    </div>
                               </div>
